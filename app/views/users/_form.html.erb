@@ -1,0 +1,74 @@
+
+  <% if @user.errors.any? %>
+<div id="error_explanation">
+  <h2>
+    
+    <%= pluralize(@user.errors.count,"error") %>
+    occured:
+
+  </h2>
+  <p>
+
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+    <li>
+      <%= msg %>
+    </li>
+  </ul>
+
+    <% end %>
+  </p>
+</div>
+<% end %>
+
+<div class="personal-information">
+  <p>
+ <!-- if 'form' placed in front, do not need to specify object. Otherwise, specify the object -->
+  	<%= form.label :first_name %><br>
+  	<%= form.text_field :first_name %>
+  </p>
+
+  <p>
+  	<%= form.label :last_name %><br>
+  	<%= form.text_field :last_name %>
+  </p>
+
+  <p>
+
+ <!-- with _tag, this allows the object/model to be defined manually (hardcoding) without tag, it will go to model to check -->
+  	<%= label_tag(:gender) %>
+  	<br>
+  	<%= label_tag(:gender, "Male") %>
+	<%= radio_button_tag(:gender, "male") %>
+	<%= label_tag(:gender, "Female") %>
+	<%= radio_button_tag(:gender, "female") %>
+  </p>
+
+  <p>
+  	<%= form.label :birthday %><br>
+  	<%= form.date_select("birthday",start_year: Date.today.year-18, end_year: 1920 , include_blank: " ") %>
+
+  </p>
+
+  <p>
+  	<%= form.country_select :country, include_blank: "-------------------" %>
+  </p>
+
+
+
+
+</div>
+
+<div class="text-field">
+  <p>
+  	<%= form.label :email %><br>
+  	<%= form.text_field :email, type: 'email' %>
+  </p>
+</div>
+
+<div class="password-field">
+  <p>
+    <%= form.label :password %><br>
+    <%= form.password_field :password %>
+  </p>
+</div>
