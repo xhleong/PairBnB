@@ -39,6 +39,8 @@ gem 'clearance'
 #country select gem
 gem 'country_select'
 
+#gem for privacy protection. Prevents passwords from being posted on git by adding application.yml file to git ignore
+gem "figaro"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
