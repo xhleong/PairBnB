@@ -36,8 +36,20 @@ gem 'jbuilder', '~> 2.5'
 # User management gems - Clearance ; Devise
 gem 'clearance'
 
+#Figaro gem for creating application yml file. Prevents file from being uploaded to git.
+gem 'figaro'
+
 #country select gem
 gem 'country_select'
+
+#3rd party authentication
+gem 'omniauth'
+
+#facebook
+gem 'omniauth-facebook'
+
+#for better console layout
+gem 'pry-rails', :group => :development
 
 
 group :development, :test do
