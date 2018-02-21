@@ -39,15 +39,6 @@ gem 'clearance'
 #country select gem
 gem 'country_select'
 
-#3rd party authentication
-gem 'omniauth'
-
-#facebook
-gem 'omniauth-facebook'
-
-#for better console layout
-gem 'pry-rails', :group => :development
-
 #gem for privacy protection. Prevents passwords from being posted on git by adding application.yml file to git ignore
 gem "figaro"
 
