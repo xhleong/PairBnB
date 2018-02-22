@@ -11,6 +11,8 @@ Rails.application.routes.draw do
       only: [:create, :edit, :update]
   end
 
+  resources :listings
+
   root 'home#index'
 
   #'as' gives a name to the route URL <i.e. clearance/sessions#new>

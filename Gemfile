@@ -48,6 +48,13 @@ gem 'omniauth'
 #facebook
 gem 'omniauth-facebook'
 
+#bootstrap gem
+gem 'bootstrap', '~> 4.0'
+
+#bootstrap dependencies
+gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+
 #for better console layout
 gem 'pry-rails', :group => :development
 

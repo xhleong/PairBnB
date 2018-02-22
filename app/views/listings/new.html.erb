@@ -1,0 +1,44 @@
+<%= form_for :listing do |f| %>
+      <p>
+            <%= f.label :name, 'Listing Name' %><br>
+            <%= f.text_field :name %>
+      </p>
+      
+      <p>
+            <%= f.label :property_type %><br>
+            <%= f.radio_button :property_type, "house" %>
+            <%= f.label :property_type, "House" %>
+            <%= f.radio_button :property_type, "room" %>
+            <%= f.label :property_type, "Room" %>
+            <%= f.radio_button :property_type, "apartment" %>
+            <%= f.label :property_type, "Apartment" %>
+      </p>
+
+      <p>
+            <%= f.label :address, 'Street' %><br>
+            <%= f.text_field :address %><br>
+            <%= f.label :city %><br>
+            <%= f.text_field :city %><br>
+            <%= f.label :postcode %><br>
+            <%= f.text_field :postcode %><br>
+      </p>
+      
+      <br>
+      <p><%= f.submit %></p>
+
+
+<% end %>
+
+      t.string :name, null:false
+      t.string :property_type
+      t.string :address
+      t.string :city
+      t.string :postcode
+      t.string :state
+      t.string :country
+      t.integer :room_number
+      t.integer :bed_number
+      t.integer :guest_number
+      t.integer :price
+      t.text :amenities, array:true, default:[]
+      t.text :tags, array:true, default:[]
