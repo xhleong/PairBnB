@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20180221093828) do
     t.integer "room_number"
     t.integer "bed_number"
     t.integer "guest_number"
-    t.integer "price"
+    t.decimal "price", precision: 20, scale: 2
     t.text "amenities", default: [], array: true
     t.text "tags", default: [], array: true
     t.bigint "user_id"

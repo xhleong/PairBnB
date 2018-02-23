@@ -1,4 +1,27 @@
-<%= form_for :listing do |f| %>
+<%= form_for @listing do |f| %>
+      <% if @listing.errors.any? %>
+            <div id="error_explanation">
+              <h2>
+                
+                <%= pluralize(@listing.errors.count,"error") %>
+                occured:
+
+              </h2>
+              <p>
+
+              <ul>
+                <% @listing.errors.full_messages.each do |msg| %>
+                <li>
+                  <%= msg %>
+                </li>
+              </ul>
+
+                <% end %>
+              </p>
+            </div>
+      <% end %>
+
+
       <p>
             <%= f.label :name, 'Listing Name' %><br>
             <%= f.text_field :name %>
@@ -21,24 +44,59 @@
             <%= f.text_field :city %><br>
             <%= f.label :postcode %><br>
             <%= f.text_field :postcode %><br>
+            <%= f.label :state %><br>
+            <%= f.text_field :state %><br>
+            <%= f.label :country %><br>
+            <%= f.select :country do %>
+                  <%= content_tag(:option, "") %>
+                  <% CS.countries.each do |c| %>
+                  <%= content_tag(:option, c.last, value:c.last) %>
+                  <% end %>
+            <% end %>
       </p>
-      
+
+      <p>
+            Listing Details
+            <p>
+                  <%= f.label :room_number, 'No. of Rooms' %><br>
+                  <%= f.number_field :room_number, {min: 0} %><br>
+                  <%= f.label :bed_number, 'No. of Beds' %><br>
+                  <%= f.number_field :bed_number, {min: 0} %><br>
+                  <%= f.label :guest_number, 'Max No. of Guests' %><br>
+                  <%= f.number_field :guest_number, {min: 0} %><br>
+
+            </p>
+      </p>
+
+      <p>
+            Amenities
+            <p>
+                  <%=f.check_box :amenities, {multiple:true}, "kitchen", nil %> kitchen
+                  <%=f.check_box :amenities, {multiple:true}, "pool", nil %> pool
+                  <%=f.check_box :amenities, {multiple:true}, "gym", nil %> gym
+                  <%=f.check_box :amenities, {multiple:true}, "toilet", nil %> toilet
+                  <%=f.check_box :amenities, {multiple:true}, "bathtub", nil %> bathtub
+                  <%=f.check_box :amenities, {multiple:true}, "balcony", nil %> balcony
+            </p>
+      </p>
+      <p>
+            House Rules
+            <p>
+                  <%=f.check_box :tags, {multiple:true}, "smoking", nil %> No smoking restrictions
+                  <%=f.check_box :tags, {multiple:true}, "non-smoking", nil %> Non-smoking
+                  <%=f.check_box :tags, {multiple:true}, "pet-friendly", nil %> Pet friendly
+                  <%=f.check_box :tags, {multiple:true}, "no-pets", nil %> No pets allowed
+            </p>
+      </p>
+
+
+            
+      <p>
+            <%= f.label :price, 'Price per Night (USD)' %><br>
+            <%= f.number_field :price, {min:1} %><br>
+      </p>
       <br>
       <p><%= f.submit %></p>
 
 
 <% end %>
-
-      t.string :name, null:false
-      t.string :property_type
-      t.string :address
-      t.string :city
-      t.string :postcode
-      t.string :state
-      t.string :country
-      t.integer :room_number
-      t.integer :bed_number
-      t.integer :guest_number
-      t.integer :price
-      t.text :amenities, array:true, default:[]
-      t.text :tags, array:true, default:[]
