@@ -23,6 +23,11 @@
 
 <div class="personal-information">
   <p>
+    <%= form.label "Upload a profile picture" %><br>
+    <%= form.file_field :avatar %>
+  </p>
+
+  <p>
  <!-- if 'form' placed in front, do not need to specify object. Otherwise, specify the object -->
   	<%= form.label :first_name %><br>
   	<%= form.text_field :first_name %>

@@ -103,11 +103,12 @@
             <%= f.label :price, 'Price per Night (USD)' %><br>
             <%= f.number_field :price, {min:1, step:0.01} %><br>
       </p>
-
+  
       <p>
             <%= f.label :gallery, 'Listing Images' %><br>
             <%= f.file_field :gallery, multiple: true %>
       </p>
+
       <br>
       <p><%= f.submit %></p>
 

@@ -1,0 +1,28 @@
+
+<div class="image"></div>
+  <p><%= image_tag @listing.gallery_url.to_s %></p>
+  <p><%= @listing.name %></p>
+  <p>Property Type: <%= @listing.property_type %></p>
+  <p><%= @listing.state %> | <%= @listing.country %></p>
+  <p>Price: <%= @listing.price %></p>
+  <p>Book Now</p>
+
+  <% if current_user.id==@listing.user_id %>
+    <%= link_to "Edit", edit_listing_path(list) %> | <%= link_to "Delete", listing_path(list), method: :Delete, data: {confirm: 'Sure to delete?'} %>
+  <% else %>
+  <% end %>
+  
+  <hr>
+  
+  Rooms: <%= @listing.room_number %>
+  Beds: <%= @listing.bed_number %>
+  Max Guests: <%= @listing.guest_number %>
+  
+  <hr>
+  
+  Amenities:
+  <% @listing.amenities.each do |a| %>
+    <li>
+    <%= a %>
+    </li>
+  <% end %>

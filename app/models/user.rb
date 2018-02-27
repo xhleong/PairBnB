@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   include Clearance::User
 
+  mount_uploader :avatar, AvatarUploader
+
+  validates :email, :uniqueness=> true, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, :message => "error"}
   validates :first_name, presence: true,
   		length: {minimum: 1}
   validates :last_name, presence: true,
@@ -11,6 +14,7 @@ class User < ApplicationRecord
 
   has_many :authentications, dependent: :destroy
   has_many :listings
+  has_many :reservations
 
   def self.create_with_auth_and_hash(authentication, auth_hash)
 	  user = self.create!(

@@ -1,0 +1,25 @@
+<%= paginate @listings %><br>
+
+<div class="list-area">
+
+<% @listings.each do |list| %>
+
+<div class="list-box">
+<div class="image"></div>
+  <p><%= list.name %></p>
+  <p><%= list.property_type %></p>
+  <p><%= list.state %> | <%= list.country %></p>
+  
+  <%= link_to "Show", listing_path(list) %>
+  <% if current_user.id==list.user_id %>
+   | <%= link_to "Edit", edit_listing_path(list) %> | <%= link_to "Delete", listing_path(list), method: :Delete, data: {confirm: 'Sure to delete?'} %>
+  <% else %>
+  
+  <p><%= link_to "Book Now", new_listing_reservation_path(list) %></p>
+
+  <% end %>
+  
+</div>
+<% end %>
+
+</div>

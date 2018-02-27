@@ -61,6 +61,16 @@ gem 'city-state'
 #for better console layout
 gem 'pry-rails', :group => :development
 
+#to generate fake data:
+gem 'faker'
+
+#pagination gem - kaminari/will_paginate
+gem 'kaminari'
+
+#image installer
+gem 'carrierwave', '~> 1.0'
+
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

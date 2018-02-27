@@ -11,7 +11,7 @@ class CreateListings < ActiveRecord::Migration[5.1]
       t.integer :room_number
       t.integer :bed_number
       t.integer :guest_number
-      t.decimal :price, precision: 20, scale: 2
+      t.integer :price, null:false
       t.text :amenities, array:true, default:[]
       t.text :tags, array:true, default:[]
 
