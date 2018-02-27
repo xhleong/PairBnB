@@ -36,9 +36,6 @@ gem 'jbuilder', '~> 2.5'
 # User management gems - Clearance ; Devise
 gem 'clearance'
 
-#Figaro gem for creating application yml file. Prevents file from being uploaded to git.
-gem 'figaro'
-
 #country select gem
 gem 'country_select'
 
@@ -70,7 +67,8 @@ gem 'kaminari'
 #image installer
 gem 'carrierwave', '~> 1.0'
 
-
+#gem for privacy protection. Prevents passwords from being posted on git by adding application.yml file to git ignore
+gem "figaro"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
