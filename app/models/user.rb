@@ -10,6 +10,7 @@ class User < ApplicationRecord
   validates :age,numericality: {greater_than: 17, message: "must be 18 years old or above to create account" }
 
   has_many :authentications, dependent: :destroy
+  has_many :listings
 
   def self.create_with_auth_and_hash(authentication, auth_hash)
 	  user = self.create!(
