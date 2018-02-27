@@ -58,6 +58,15 @@ gem 'city-state'
 #for better console layout
 gem 'pry-rails', :group => :development
 
+#to generate fake data:
+gem 'faker'
+
+#pagination gem - kaminari/will_paginate
+gem 'kaminari'
+
+#image installer
+gem 'carrierwave', '~> 1.0'
+
 #gem for privacy protection. Prevents passwords from being posted on git by adding application.yml file to git ignore
 gem "figaro"
 

@@ -1,5 +1,9 @@
 class Listing < ApplicationRecord
+  mount_uploader :gallery, GalleryUploader
+
   belongs_to :user
+
+  has_many :reservations
 
   validates :name, presence:true
   validates :property_type, presence:true

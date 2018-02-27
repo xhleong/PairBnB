@@ -1,3 +1,31 @@
 // Place all the styles related to the listings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.list-area{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list-box {
+  border: 5px solid #ccc ;
+  float: left;
+  margin-bottom: 10px;
+  min-width: 100%;
+  padding: 5px;
+}
+
+@media screen and (min-width:800px) {
+  .list-box {
+    min-width: 50%;
+    max-width: 50%
+  }
+}
+
+@media screen and (min-width:1000px) {
+  .list-box {
+    min-width: 33%;
+    max-width:33%
+  }
+}

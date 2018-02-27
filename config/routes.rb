@@ -11,7 +11,10 @@ Rails.application.routes.draw do
       only: [:create, :edit, :update]
   end
 
-  resources :listings
+  resources :listings do
+    resources :reservations
+  end
+
 
   root 'home#index'
 
