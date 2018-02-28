@@ -5,10 +5,9 @@
   <p>Property Type: <%= @listing.property_type %></p>
   <p><%= @listing.state %> | <%= @listing.country %></p>
   <p>Price: <%= @listing.price %></p>
-  <p>Book Now</p>
 
   <% if current_user.id==@listing.user_id %>
-    <%= link_to "Edit", edit_listing_path(list) %> | <%= link_to "Delete", listing_path(list), method: :Delete, data: {confirm: 'Sure to delete?'} %>
+    <%= link_to "Edit", edit_listing_path(@listing) %> | <%= link_to "Delete", listing_path(@listing), method: :Delete, data: {confirm: 'Sure to delete?'} %>
   <% else %>
   <% end %>
   
