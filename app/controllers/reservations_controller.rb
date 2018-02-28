@@ -16,8 +16,8 @@ class ReservationsController < ApplicationController
 
 
     if @reservation.save
-      ReservationMailer.reservation_confirmation(@user, @owner, @listing, @reservation).deliver_now
-      ReservationMailer.new_reservation(@owner, @user, @listing, @reservation).deliver_now
+      ReservationMailer.reservation_confirmation(@user, @owner, @listing, @reservation).deliver_later
+      ReservationMailer.new_reservation(@owner, @user, @listing, @reservation).deliver_later
       redirect_to [@listing, @reservation]
     else
       render 'new'
