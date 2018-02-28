@@ -3,7 +3,7 @@ class Listing < ApplicationRecord
 
   belongs_to :user
 
-  has_many :reservations
+  has_many :reservations, dependent: :destroy
 
   validates :name, presence:true
   validates :property_type, presence:true

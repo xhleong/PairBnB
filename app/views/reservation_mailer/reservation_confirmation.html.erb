@@ -1,0 +1,10 @@
+Hi <%= @user.first_name + " " + @user.last_name %>
+
+Thanks you for your reservation of <%= @listing.name %>.
+
+Details as below:
+
+Booking start date: <%= @reservation.start_date %>
+Booking end date: <%= @reservation.end_date %>
+Booking duration: <%= @reservation.end_date - @reservation.start_date %>
+Total Price : <%= @reservation.total_price %>
