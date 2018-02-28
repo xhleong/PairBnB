@@ -11,9 +11,13 @@ class ReservationsController < ApplicationController
     @listing = Listing.find(params[:listing_id])
     @reservation = current_user.reservations.new(reservation_params)
     @reservation.listing_id = @listing.id
+    @user = current_user
+    @owner = User.find(@listing.user_id)
 
 
     if @reservation.save
+      ReservationMailer.reservation_confirmation(@user, @owner, @listing, @reservation).deliver_now
+      ReservationMailer.new_reservation(@owner, @user, @listing, @reservation).deliver_now
       redirect_to [@listing, @reservation]
     else
       render 'new'
